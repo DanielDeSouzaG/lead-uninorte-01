@@ -246,12 +246,12 @@ export default function LeadsPage({ userType, userId }) {
             </div>
             <div>
               <Label>Curso</Label>
-              <Select value={filterCurso} onValueChange={setFilterCurso}>
+              <Select value={filterCurso || "all"} onValueChange={(val) => setFilterCurso(val === "all" ? "" : val)}>
                 <SelectTrigger data-testid="filter-curso-select">
                   <SelectValue placeholder="Todos os cursos" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Todos os cursos</SelectItem>
+                  <SelectItem value="all">Todos os cursos</SelectItem>
                   {courses.map(course => (
                     <SelectItem key={course.id} value={course.nome}>
                       {course.nome}
@@ -262,12 +262,12 @@ export default function LeadsPage({ userType, userId }) {
             </div>
             <div>
               <Label>Status</Label>
-              <Select value={filterStatus} onValueChange={setFilterStatus}>
+              <Select value={filterStatus || "all"} onValueChange={(val) => setFilterStatus(val === "all" ? "" : val)}>
                 <SelectTrigger data-testid="filter-status-select">
                   <SelectValue placeholder="Todos os status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Todos os status</SelectItem>
+                  <SelectItem value="all">Todos os status</SelectItem>
                   <SelectItem value="Novo">Novo</SelectItem>
                   <SelectItem value="Em negociação">Em negociação</SelectItem>
                   <SelectItem value="Matriculado">Matriculado</SelectItem>
