@@ -1,6 +1,6 @@
 # Sistema de Gestão de Leads UNINORTE - Guia de Acesso ao Banco de Dados
 
-## 📊 Informações do Banco de Dados
+## Informações do Banco de Dados
 
 O sistema utiliza **MongoDB** como banco de dados, que está rodando localmente no container.
 
@@ -11,7 +11,7 @@ URL de Conexão: mongodb://localhost:27017
 Nome do Banco: test_database
 ```
 
-## 🔌 Como Acessar o Banco de Dados
+## Como Acessar o Banco de Dados
 
 ### Opção 1: Via Terminal (Mongo Shell)
 
@@ -72,7 +72,7 @@ Se você tiver o MongoDB Compass instalado:
 3. Navegue até o banco `test_database`
 4. Explore as coleções visualmente
 
-## 📁 Estrutura das Coleções
+## Estrutura das Coleções
 
 ### 1. **users** - Usuários do Sistema
 ```json
@@ -134,7 +134,7 @@ Se você tiver o MongoDB Compass instalado:
 }
 ```
 
-## 🔍 Consultas Úteis
+## Consultas Úteis
 
 ### Buscar usuários por tipo
 ```javascript
@@ -167,7 +167,7 @@ db.leads.find({
 db.audit_logs.find().sort({ criado_em: -1 }).limit(10)
 ```
 
-## 🛠️ Comandos de Administração
+## Comandos de Administração
 
 ### Backup do Banco
 ```bash
@@ -189,26 +189,24 @@ db.stats()
 db.nome_da_colecao.deleteMany({})
 ```
 
-## 📌 Notas Importantes
+## Notas Importantes
 
-1. **Segurança**: O banco está configurado sem autenticação no ambiente de desenvolvimento. Em produção, sempre use autenticação!
+1. **Backup**: O sistema oferece backup via interface (Admin > Configurações > Backup), que exporta os dados em Excel.
 
-2. **Backup**: O sistema oferece backup via interface (Admin > Configurações > Backup), que exporta os dados em Excel.
-
-3. **Índices**: Para melhor performance em produção, considere criar índices:
+2. **Índices**: Para melhor performance em produção, considere criar índices:
 ```javascript
 db.leads.createIndex({ vendedor_id: 1 })
 db.leads.createIndex({ status: 1 })
 db.leads.createIndex({ criado_em: -1 })
 ```
 
-4. **Variáveis de Ambiente**: As configurações do banco estão em `/app/backend/.env`:
+3. **Variáveis de Ambiente**: As configurações do banco estão em `/app/backend/.env`:
 ```
 MONGO_URL="mongodb://localhost:27017"
 DB_NAME="test_database"
 ```
 
-## 📞 Suporte
+## Suporte
 
 Se precisar de ajuda adicional com o banco de dados, verifique:
 - Logs do MongoDB: `sudo supervisorctl tail mongodb`

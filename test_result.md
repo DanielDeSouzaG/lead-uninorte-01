@@ -1,9 +1,9 @@
 #====================================================================================================
-# START - Testing Protocol - DO NOT EDIT OR REMOVE THIS SECTION
+# START - Protocolo de Teste - NÃO EDITE NEM REMOVA
 #====================================================================================================
 
-# THIS SECTION CONTAINS CRITICAL TESTING INSTRUCTIONS FOR BOTH AGENTS
-# BOTH MAIN_AGENT AND TESTING_AGENT MUST PRESERVE THIS ENTIRE BLOCK
+# ESTA SEÇÃO CONTÉM INSTRUÇÕES CRÍTICAS DE TESTE PARA AMBOS OS USUARIOS
+# TANTO MAIN_AGENT QUANTO TESTING_AGENT É NECESSÁRIO PRESERVAR TODO
 
 # Communication Protocol:
 # If the `testing_agent` is available, main agent should delegate all testing tasks to it.

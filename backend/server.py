@@ -106,7 +106,7 @@ class AuditLog(BaseModel):
     detalhes: Optional[str] = None
     criado_em: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
-# ==================== HELPER FUNCTIONS ====================
+# ==================== FUNÇÕES AUXILIARES ====================
 def hash_password(password: str) -> str:
     return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
@@ -149,7 +149,7 @@ async def log_audit(usuario_id: str, usuario_nome: str, acao: str, entidade: str
     doc['criado_em'] = doc['criado_em'].isoformat()
     await db.audit_logs.insert_one(doc)
 
-# ==================== AUTH ENDPOINTS ====================
+# ==================== PONTO DE AUTENTICAÇÃO ====================
 @api_router.post("/auth/login", response_model=Token)
 async def login(user_login: UserLogin):
     user = await db.users.find_one({"email": user_login.email}, {"_id": 0})
@@ -173,7 +173,7 @@ async def login(user_login: UserLogin):
 async def get_me(current_user: Dict = Depends(get_current_user)):
     return {k: v for k, v in current_user.items() if k != 'senha_hash'}
 
-# ==================== LEAD ENDPOINTS ====================
+# ==================== LEAD AUTENTICAÇÃO ====================
 @api_router.post("/leads", response_model=Lead)
 async def create_lead(lead_data: LeadCreate, current_user: Dict = Depends(get_current_user)):
     if current_user['tipo'] != 'vendedor':
