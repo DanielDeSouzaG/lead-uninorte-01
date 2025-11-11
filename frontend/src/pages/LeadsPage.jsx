@@ -197,11 +197,12 @@ export default function LeadsPage({ userType, userId }) {
                     <Select
                       value={formData.curso}
                       onValueChange={(value) => setFormData({...formData, curso: value})}
+                      required
                     >
-                      <SelectTrigger data-testid="lead-curso-select">
+                      <SelectTrigger data-testid="lead-curso-select" className="w-full">
                         <SelectValue placeholder="Selecione um curso" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="max-h-[300px]">
                         {courses.map(course => (
                           <SelectItem key={course.id} value={course.nome}>
                             {course.nome}
