@@ -63,6 +63,13 @@ export default function LeadsPage({ userType, userId }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validação
+    if (!formData.curso) {
+      toast.error('Por favor, selecione um curso');
+      return;
+    }
+    
     try {
       if (userType === 'vendedor') {
         await axios.post(`${API}/leads`, formData, getAuthHeaders());
