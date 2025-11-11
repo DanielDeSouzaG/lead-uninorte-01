@@ -571,7 +571,7 @@ async def startup_db():
             {
                 "id": str(uuid.uuid4()),
                 "email": "adm@lead.com.br",
-                "nome": "DANIEL Souza",
+                "nome": "Administrador",
                 "tipo": "administrador",
                 "senha_hash": hash_password("adm123"),
                 "ativo": True,
