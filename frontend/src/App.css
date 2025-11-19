@@ -1,133 +1,167 @@
+/* Importação de fontes do Google Fonts */
+/* Manrope para títulos e Inter para texto normal */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* Reset CSS para todos os elementos */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;          /* Remove margens padrão */
+  padding: 0;         /* Remove paddings padrão */
+  box-sizing: border-box; /* Inclui padding e border no cálculo do width/height */
 }
 
+/* Estilos para o elemento body */
 body {
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', sans-serif; /* Define Inter como fonte padrão */
+  -webkit-font-smoothing: antialiased; /* Suavização de fontes no Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale;  /* Suavização de fontes no Firefox */
 }
 
+/* Estilos para todos os elementos de cabeçalho (h1 até h6) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Manrope', sans-serif; /* Define Manrope para títulos */
 }
 
+/* Classe principal da aplicação React */
 .App {
-  min-height: 100vh;
+  min-height: 100vh; /* Garante que o container ocupe pelo menos a altura total da viewport */
 }
 
-/* Scrollbar styling */
+/* ==================== ESTILIZAÇÃO DA SCROLLBAR ==================== */
+
+/* Estiliza a scrollbar vertical e horizontal */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 8px;   /* Largura da scrollbar vertical */
+  height: 8px;  /* Altura da scrollbar horizontal */
 }
 
+/* Estiliza o track (trilha) da scrollbar */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent; /* Track transparente */
 }
 
+/* Estiliza o thumb (alça) da scrollbar */
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #cbd5e1; /* Cor cinza claro */
+  border-radius: 4px;  /* Bordas arredondadas */
 }
 
+/* Efeito hover no thumb da scrollbar */
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #94a3b8; /* Cor mais escura no hover */
 }
 
+/* Estilos da scrollbar para modo escuro */
 .dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #475569; /* Cor mais escura para modo escuro */
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #64748b; /* Cor hover mais clara no modo escuro */
 }
 
-/* Animations */
+/* ==================== ANIMAÇÕES CSS ==================== */
+
+/* Definição da animação de fade in com movimento vertical */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: 0;           /* Inicia invisível */
+    transform: translateY(10px); /* Inicia 10px abaixo da posição final */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;           /* Termina totalmente visível */
+    transform: translateY(0); /* Volta à posição original */
   }
 }
 
+/* Classe para aplicar animação de fade in */
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.3s ease-out; /* Duração 0.3s com easing suave */
 }
 
+/* Definição da animação de slide in lateral */
 @keyframes slideIn {
   from {
-    opacity: 0;
-    transform: translateX(-20px);
+    opacity: 0;             /* Inicia invisível */
+    transform: translateX(-20px); /* Inicia 20px à esquerda */
   }
   to {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 1;             /* Termina totalmente visível */
+    transform: translateX(0);   /* Volta à posição original */
   }
 }
 
+/* Classe para aplicar animação de slide in */
 .animate-slide-in {
-  animation: slideIn 0.4s ease-out;
+  animation: slideIn 0.4s ease-out; /* Duração 0.4s com easing suave */
 }
 
-/* Gradient background */
+/* ==================== GRADIENTS ==================== */
+
+/* Classe para fundo com gradiente azul */
 .gradient-bg {
   background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+  /* Gradiente diagonal (135°) do azul 600 (#2563EB) para azul 700 (#1E40AF) */
 }
 
+/* Classe para fundo com gradiente laranja */
 .gradient-orange {
   background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  /* Gradiente diagonal (135°) do laranja 500 (#F97316) para laranja 600 (#EA580C) */
 }
 
-/* Card hover effects */
+/* ==================== EFEITOS VISUAIS ==================== */
+
+/* Classe para cards com efeito hover */
 .card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transição suave com curva personalizada */
 }
 
+/* Efeito hover para cards */
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);        /* Levanta o card 4px para cima */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Adiciona sombra mais pronunciada */
 }
 
-/* Button transitions */
+/* ==================== ESTILOS DE BOTÕES ==================== */
+
+/* Transições para todos os botões */
 button {
-  transition: all 0.2s ease;
+  transition: all 0.2s ease; /* Transição suave de 0.2s para todas as propriedades */
 }
 
+/* Efeito hover para botões */
 button:hover {
-  transform: scale(1.02);
+  transform: scale(1.02); /* Aumenta ligeiramente o botão (2%) */
 }
 
+/* Efeito active (quando clicado) para botões */
 button:active {
-  transform: scale(0.98);
+  transform: scale(0.98); /* Reduz ligeiramente o botão (2%) */
 }
 
-/* Input focus */
+/* ==================== ESTILOS DE FORMULÁRIOS ==================== */
+
+/* Estilo para elementos de formulário em foco */
 input:focus,
 textarea:focus,
 select:focus {
-  outline: none;
-  ring: 2px;
-  ring-color: #2563EB;
+  outline: none;        /* Remove o outline padrão */
+  ring: 2px;           /* Propriedade personalizada para anel de foco */
+  ring-color: #2563EB; /* Cor azul para o anel de foco */
 }
 
-/* Glass morphism effect */
+/* ==================== GLASS MORPHISM ==================== */
+
+/* Efeito glass morphism (vidro fosco) */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);      /* Fundo branco semi-transparente */
+  backdrop-filter: blur(10px);               /* Efeito de desfoque no fundo */
+  -webkit-backdrop-filter: blur(10px);       /* Suporte para Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil branca */
 }
 
+/* Versão do glass morphism para modo escuro */
 .dark .glass {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);           /* Fundo preto semi-transparente */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil mais clara */
 }

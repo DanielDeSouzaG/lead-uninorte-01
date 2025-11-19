@@ -1,112 +1,213 @@
+/* ==================== DIRETIVAS DO TAILWIND CSS ==================== */
+
+/* Importa os estilos base do Tailwind (reset CSS, estilos básicos) */
 @tailwind base;
+
+/* Importa os componentes predefinidos do Tailwind */
 @tailwind components;
+
+/* Importa as classes utilitárias do Tailwind */
 @tailwind utilities;
 
+/* ==================== ESTILOS GLOBAIS ==================== */
+
+/* Estilos para o elemento body */
 body {
-    margin: 0;
+    margin: 0; /* Remove margens padrão */
+    
+    /* Stack de fontes para melhor compatibilidade entre sistemas operacionais */
     font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
+        -apple-system,       /* Safari no macOS e iOS */
+        BlinkMacSystemFont,  /* Chrome no macOS */
+        "Segoe UI",          /* Windows */
+        "Roboto",            /* Android */
+        "Oxygen",            /* KDE */
+        "Ubuntu",            /* Ubuntu */
+        "Cantarell",         /* GNOME */
+        "Fira Sans",         /* Firefox OS */
+        "Droid Sans",        /* Android mais antigo */
+        "Helvetica Neue",    /* macOS e iOS */
+        sans-serif;          /* Fallback genérico */
+    
+    /* Suavização de fontes para WebKit (Chrome, Safari) */
     -webkit-font-smoothing: antialiased;
+    
+    /* Suavização de fontes para Firefox */
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Estilos para elementos de código (code, pre) */
 code {
+    /* Stack de fontes monoespaçadas para código */
     font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+        source-code-pro,     /* Adobe Source Code Pro */
+        Menlo,               /* macOS */
+        Monaco,              /* macOS alternativo */
+        Consolas,            /* Windows */
+        "Courier New",       /* Fallback genérico */
+        monospace;           /* Fallback final */
 }
 
+/* ==================== SISTEMA DE DESIGN (THEME TOKENS) ==================== */
+
+/* Camada base do Tailwind para definir variáveis CSS e estilos fundamentais */
 @layer base {
+    /* Variáveis CSS para o tema claro (modo claro) */
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
+        /* Cores base */
+        --background: 0 0% 100%;          /* Fundo branco puro */
+        --foreground: 0 0% 3.9%;          /* Texto quase preto (97% escuro) */
+        
+        /* Componentes de cartão */
+        --card: 0 0% 100%;                /* Fundo do cartão branco */
+        --card-foreground: 0 0% 3.9%;     /* Texto do cartão escuro */
+        
+        /* Componentes de popover/dropdown */
+        --popover: 0 0% 100%;             /* Fundo do popover branco */
+        --popover-foreground: 0 0% 3.9%;  /* Texto do popover escuro */
+        
+        /* Cores primárias (ações principais) */
+        --primary: 0 0% 9%;               /* Cor primária escura */
+        --primary-foreground: 0 0% 98%;   /* Texto sobre cor primária (claro) */
+        
+        /* Cores secundárias */
+        --secondary: 0 0% 96.1%;          /* Fundo secundário cinza muito claro */
+        --secondary-foreground: 0 0% 9%;  /* Texto secundário escuro */
+        
+        /* Elementos muted/atenuação */
+        --muted: 0 0% 96.1%;              /* Fundo muted cinza claro */
+        --muted-foreground: 0 0% 45.1%;   /* Texto muted cinza médio */
+        
+        /* Cores de destaque/accent */
+        --accent: 0 0% 96.1%;             /* Fundo de destaque */
+        --accent-foreground: 0 0% 9%;     /* Texto de destaque */
+        
+        /* Cores destrutivas (erros, deletar) */
+        --destructive: 0 84.2% 60.2%;     /* Vermelho para ações destrutivas */
+        --destructive-foreground: 0 0% 98%; /* Texto sobre fundo destrutivo */
+        
+        /* Cores para bordas e inputs */
+        --border: 0 0% 89.8%;             /* Cor das bordas cinza claro */
+        --input: 0 0% 89.8%;              /* Fundo dos inputs */
+        --ring: 0 0% 3.9%;                /* Cor do anel de foco */
+        
+        /* Cores para gráficos (paleta de 5 cores) */
+        --chart-1: 12 76% 61%;            /* Laranja avermelhado */
+        --chart-2: 173 58% 39%;           /* Verde azulado */
+        --chart-3: 197 37% 24%;           /* Azul escuro */
+        --chart-4: 43 74% 66%;            /* Amarelo dourado */
+        --chart-5: 27 87% 67%;            /* Laranja */
+        
+        /* Raio de borda padrão para componentes */
+        --radius: 0.5rem;                 /* 8px border radius */
     }
+
+    /* Variáveis CSS para o tema escuro (modo escuro) */
     .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        /* Cores base invertidas */
+        --background: 0 0% 3.9%;          /* Fundo preto quase puro */
+        --foreground: 0 0% 98%;           /* Texto branco */
+        
+        /* Componentes de cartão no modo escuro */
+        --card: 0 0% 3.9%;                /* Fundo do cartão escuro */
+        --card-foreground: 0 0% 98%;      /* Texto do cartão claro */
+        
+        /* Componentes de popover no modo escuro */
+        --popover: 0 0% 3.9%;             /* Fundo do popover escuro */
+        --popover-foreground: 0 0% 98%;   /* Texto do popover claro */
+        
+        /* Cores primárias invertidas */
+        --primary: 0 0% 98%;              /* Cor primária clara */
+        --primary-foreground: 0 0% 9%;    /* Texto sobre primária escuro */
+        
+        /* Cores secundárias no modo escuro */
+        --secondary: 0 0% 14.9%;          /* Fundo secundário cinza escuro */
+        --secondary-foreground: 0 0% 98%; /* Texto secundário claro */
+        
+        /* Elementos muted no modo escuro */
+        --muted: 0 0% 14.9%;              /* Fundo muted cinza escuro */
+        --muted-foreground: 0 0% 63.9%;   /* Texto muted cinza médio */
+        
+        /* Cores de destaque no modo escuro */
+        --accent: 0 0% 14.9%;             /* Fundo de destaque escuro */
+        --accent-foreground: 0 0% 98%;    /* Texto de destaque claro */
+        
+        /* Cores destrutivas no modo escuro */
+        --destructive: 0 62.8% 30.6%;     /* Vermelho mais escuro e suave */
+        --destructive-foreground: 0 0% 98%; /* Texto sobre destrutivo claro */
+        
+        /* Cores para bordas e inputs no modo escuro */
+        --border: 0 0% 14.9%;             /* Bordas cinza escuro */
+        --input: 0 0% 14.9%;              /* Inputs com fundo escuro */
+        --ring: 0 0% 83.1%;               /* Anel de foco cinza claro */
+        
+        /* Paleta de cores para gráficos no modo escuro */
+        --chart-1: 220 70% 50%;           /* Azul vibrante */
+        --chart-2: 160 60% 45%;           /* Verde esmeralda */
+        --chart-3: 30 80% 55%;            /* Laranja */
+        --chart-4: 280 65% 60%;           /* Roxo */
+        --chart-5: 340 75% 55%;           /* Rosa */
     }
 }
 
+/* ==================== APLICAÇÃO DO SISTEMA DE DESIGN ==================== */
+
 @layer base {
+    /* Aplica a cor da borda a todos os elementos */
     * {
-        @apply border-border;
+        @apply border-border; /* Usa a variável --border para todas as bordas */
     }
+    
+    /* Aplica cores de fundo e texto ao body */
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground; /* Fundo e texto das variáveis CSS */
     }
 }
 
+/* ==================== UTILITÁRIOS DE DESENVOLVIMENTO ==================== */
+
 @layer base {
+    /* 
+     * Classe utilitária para debugging de layout
+     * [data-debug-wrapper="true"] remove o wrapper mas mantém os estilos dos filhos
+     */
     [data-debug-wrapper="true"] {
-        display: contents !important;
+        display: contents !important; /* Remove o elemento do fluxo de layout */
     }
 
+    /* 
+     * Herda todos os estilos de layout do elemento pai para os filhos diretos
+     * Útil para debugging de espaçamento e bordas
+     */
     [data-debug-wrapper="true"] > * {
+        /* Herda todas as margens */
         margin-left: inherit;
         margin-right: inherit;
         margin-top: inherit;
         margin-bottom: inherit;
+        
+        /* Herda todos os paddings */
         padding-left: inherit;
         padding-right: inherit;
         padding-top: inherit;
         padding-bottom: inherit;
+        
+        /* Herda propriedades de gap */
         column-gap: inherit;
         row-gap: inherit;
         gap: inherit;
+        
+        /* Herda todas as propriedades de borda */
         border-left-width: inherit;
         border-right-width: inherit;
         border-top-width: inherit;
         border-bottom-width: inherit;
+        
         border-left-style: inherit;
         border-right-style: inherit;
         border-top-style: inherit;
         border-bottom-style: inherit;
+        
         border-left-color: inherit;
         border-right-color: inherit;
         border-top-color: inherit;
